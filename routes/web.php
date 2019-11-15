@@ -42,5 +42,6 @@ Route::group(['middleware' => 'auth'], function() {
     Route::resource('comments', 'CommentsController');
 
     // いいね機能
-    Route::resource('favorites', 'FavoritesController', ['only' => ['store', 'destroy']]);
+    Route::resource('favorites', 'FavoritesController');
+    // Roure::get('/favorites/{user}', 'FavoritesController@allFavorites')
 });

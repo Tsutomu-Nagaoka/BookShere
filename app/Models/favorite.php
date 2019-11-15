@@ -11,15 +11,15 @@ class favorite extends Model
 
     public $timestamps = false;
 
-  //   public function user()
-  //  {
-  //      return $this->belongsTo(User::class);
-  //  }
-  //
-  //  public function product()
-  // {
-  //     return $this->belongsTo(product::class);
-  // }
+    public function user()
+   {
+       return $this->belongsTo(User::class);
+   }
+
+   public function product()
+  {
+      return $this->belongsTo(product::class);
+  }
 
     // いいねをしているかの判定
     public function isFavorite(Int $user_id, Int $product_id)
@@ -27,6 +27,13 @@ class favorite extends Model
       return (boolean) $this->where('user_id', $user_id)->where('product_id', $product_id)->first();
 
     }
+
+    // いいねしているproductのIDを取得-いいね一覧画面
+    public function favoriteIds(Int $user_id)
+    {
+      return $this->where('user_id', $user_id)->paginate(16);
+    }
+
 
     public function storeFavorite(Int $user_id, Int $product_id)
     {
@@ -41,18 +48,4 @@ class favorite extends Model
     {
       return $this->where('id', $favorite_id)->delete();
     }
-
-    // // いいねしているproductのIDを取得
-    // public function favoriteIds(Int $product_id)
-    // {
-    //   return $this->where('user_id', $user_id)->get('product_id');
-    // }
-    //
-    // // いいね一覧
-    // public function getFavorites(Int $product_id, Array $favorite_ids)
-    // {
-    //   //自分といいねしているプロダクトIDを結合
-    //   $favorite_ids[] = $product_id;
-    //   return $this->whereIn('product_id', $favorite_ids)->orderBy('created_at', 'DESC')->paginate(10);
-    // }
 }

@@ -139,8 +139,8 @@
                         <button type="submit" class="btn p-0 border-0 text-danger"><i class="fas fa-heart fa-fw"></i></button>
                       </form>
                      @endif
-                     @if(is_countable($timeline->favorite))
-                     <p class="mb-0 text-secondary">{{ count($timeline->favorite) }}</p>
+                     @if(is_countable($timeline->favorites))
+                     <p class="mb-0 text-secondary">{{ count($timeline->favorites) }}</p>
                      @else
                      <p class="mb-0 text-secondary">0</p>
                      @endif

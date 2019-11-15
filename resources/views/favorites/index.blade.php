@@ -15,7 +15,8 @@
 
         @foreach ($favorites as $favorite)
           <div class="col-md-3 col-6 mb-3">
-                <a href="{{ url('favorites/' .$favorite->id) }}"><img src="{{ asset('storage/product_image/' .$favorite->product_image) }}"  alt="" width="200" height="200" class="mt-4 d-block mx-auto img-fluid img-responsive thumbnail aligncenter size-full " style="cursor:pointer"></a>
+                <a href="{{ url('products/' .$favorite->product->id) }}"><img src="{{ asset('storage/product_image/' .$favorite->product->product_image) }}"  alt="" width="200" height="200" class="mt-4 d-block mx-auto img-fluid img-responsive thumbnail aligncenter size-full " style="cursor:pointer"></a>
+
               </div>
 
       @endforeach
@@ -23,11 +24,7 @@
     <div class="my-4 d-flex justify-content-center">
       {{ $favorites->links() }}
     </div>
-    <div id="app">
+</div>
 
-      <example-component></example-component>
-    </div>
-</div>
-</div>
 
 @endsection
