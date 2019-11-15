@@ -24,21 +24,7 @@
               <div class="card-body">
                 <h4><a href="{{ url('products/' .$timeline->id) }}" class="pl-4">{{ $timeline->title }} / {{ $timeline->author }}</a></h4>
 
-                <img src="{{ asset('storage/product_image/' .$timeline->product_image) }}" alt="" width="300" height="300" class="mt-3 d-block mx-auto img-fluid img-responsive thumbnail aligncenter size-full wp-image-425" data-toggle="modal" data-target="#image_Modal" style="cursor:pointer" />
-                <div class="modal fade" id="image_Modal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
-                <div class="modal-dialog modal-lg modal-middle">
-                <div class="modal-content">
-
-                <div class="modal-body">
-                <img src="{{ asset('storage/product_image/' .$timeline->product_image) }}" width="550" height="550" class="d-block mx-auto img-fluid aligncenter size-full wp-image-425" alt="" />
-                </div>
-                <div class="modal-img_footer mx-auto">
-                <button type="button" class="btn btn-success" data-dismiss="modal">Close</button>
-                </div>
-
-                </div>
-                </div>
-                </div>
+                <a href="{{ url('products/' .$timeline->id) }}"><img src="{{ asset('storage/product_image/' .$timeline->product_image) }}"  alt="" width="300" height="300" class="mt-4 d-block mx-auto img-fluid img-responsive thumbnail aligncenter size-full " style="cursor:pointer"></a>
 
                 <p class="form-control pl-4 mt-2 mb-0">カテゴリー : {{ $timeline->category->name }}</p>
                 <p class="form-control pl-4 mb-0">おすすめ度 : {{ $timeline->recommend }}</p>
@@ -85,8 +71,8 @@
                    <button type="submit" class="btn p-0 border-0 text-danger"><i class="fas fa-heart fa-fw"></i></button>
                  </form>
                 @endif
-                @if(is_countable($timeline->favorite))
-                <p class="mb-0 text-secondary">{{ count($timeline->favorite) }}</p>
+                @if(is_countable($timeline->favorites))
+                <p class="mb-0 text-secondary">{{ count($timeline->favorites) }}</p>
                 @else
                 <p class="mb-0 text-secondary">0</p>
                 @endif

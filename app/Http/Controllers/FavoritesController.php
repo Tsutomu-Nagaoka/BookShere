@@ -5,22 +5,22 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\favorite;
 use App\Models\product;
+use App\Models\User;
 
 class FavoritesController extends Controller
 {
 
-    // public function index(product $product, favorite $favorite)
-    // {
-    //     $user = auth()->user();
-    //     $favorite_ids = $favorite->favoriteIds($product->id);
-    //     $favorites = $favorite->getFavorites($product->id, $favorite_ids);
-    //
-    //     return view('favorites.index', [
-    //     'product'      => $product,
-    //     'favorites' => $favorites
-    //      ]);
-    //
-    // }
+    public function index(favorite $favorite)
+    {
+        $user = auth()->user();
+        $favorite_ids = $favorite->favoriteIds($user->id);
+        // $favorites = $favorite->getFavorites($product->id, $favorite_ids);
+        return view('favorites.index', [
+        'favorites' => $favorite_ids
+         ]);
+
+    }
+
 
     public function create()
     {

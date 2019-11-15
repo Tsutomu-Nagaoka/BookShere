@@ -78,8 +78,8 @@
                    <button type="submit" class="btn p-0 border-0 text-danger"><i class="fas fa-heart fa-fw"></i></button>
                  </form>
                 @endif
-                @if(is_countable($product->favorite))
-                <p class="mb-0 text-secondary">{{ count($product->favorite) }}</p>
+                @if(is_countable($product->favorites))
+                <p class="mb-0 text-secondary">{{ count($product->favorites) }}</p>
                 @else
                 <p class="mb-0 text-secondary">0</p>
                 @endif

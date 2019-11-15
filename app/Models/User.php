@@ -78,10 +78,12 @@ class User extends Authenticatable
      return $this->belongsToMany(self::class, 'follow', 'following_id', 'followed_id');
     }
 
-    // public function favorites()
-    // {
-    // return $this->hasMany(favorite::class);
-    // }
+    public function favorite()
+    {
+    return $this->hasMany(favorite::class);
+    }
+
+
 
     public function updateProfile(Array $params)
     {
